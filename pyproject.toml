@@ -3,6 +3,20 @@ name = "bowline"
 version = "0.1.0"
 description = "Configurable tools to easily pre and post process your data for data-science and machine learning."
 authors = ["Marco Gancitano <marco.gancitano97@gmail.com>"]
+license = "MIT"
+readme = "README.rst"
+homepage = "https://github.com/mgancita/bowline"
+repository = "https://github.com/mgancita/bowline"
+keywords = ["preprocess", "machine learning", "data science"]
+classifiers = [
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+include = [
+    "LICENSE",
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.7"
