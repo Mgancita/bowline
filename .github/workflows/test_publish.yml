@@ -23,4 +23,4 @@ jobs:
         poetry build
     - name: Publish package
       run: |
-        poetry publish -r testpypi -u ${{ secrets.TEST_PYPI_USERNAME }} -p ${{ secrets.TEST_PYPI_USERNAME }}
+        poetry publish -r testpypi -u ${{ secrets.TEST_PYPI_USERNAME }} -p ${{ secrets.TEST_PYPI_PASSWORD }}
