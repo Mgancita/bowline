@@ -28,10 +28,10 @@ jobs:
         poetry run pytest -c pytest.ini
     - name: Check style with flake8
       run: |
-        poetry run flake8 data_preprocessor/ tests/
+        poetry run flake8 bowline/ tests/
     - name: Check format with black
       run: |
-        poetry run black --check data_preprocessor/ tests/
+        poetry run black --check bowline/ tests/
     - name: Check type hinting with mypy
       run: |
-        poetry run mypy --strict --config-file=mypy.ini data_preprocessor/
+        poetry run mypy --strict --config-file=mypy.ini bowline/

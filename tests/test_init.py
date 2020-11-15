@@ -1,6 +1,6 @@
-"""Test data_preprocessors.__init__."""
+"""Test bowline.__init__."""
 
-from data_preprocessor import __version__
+from bowline import __version__
 
 
 def test_version():

@@ -1,4 +1,4 @@
 [run]
-include = data_processor/*
+include = bowline/*
 omit =
     *tests*
