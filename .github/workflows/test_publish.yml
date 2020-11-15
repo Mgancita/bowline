@@ -1,3 +1,5 @@
+name: Test publish
+
 on:
   release:
     types: [prereleased]
