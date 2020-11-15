@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bowline"
-version = "0.1.0"
+version = "0.1.1"
 description = "Configurable tools to easily pre and post process your data for data-science and machine learning."
 authors = ["Marco Gancitano <marco.gancitano97@gmail.com>"]
 license = "MIT"
