@@ -23,5 +23,4 @@ jobs:
         poetry build
     - name: Publish package
       run: |
-        poetry config pypi-token.pypi ${{ secrets.TESTPYPI_TOKEN }}
-        poetry publish -r testpypi
+        poetry publish -r testpypi -u ${{ secrets.TEST_PYPI_USERNAME }} -p ${{ secrets.TEST_PYPI_USERNAME }}
