@@ -1,0 +1,4 @@
+[run]
+include = data_processor/*
+omit =
+    *tests*
