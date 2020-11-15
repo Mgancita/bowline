@@ -1,0 +1,37 @@
+name: Python application
+
+on:
+  push:
+    branches: [ master, development ]
+  pull_request:
+    branches: [ master, development ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.7
+    - name: Install poetry
+      run: |
+        pip install poetry
+    - name: Install dependencies
+      run : |
+        poetry update
+    - name: Test with pytest
+      run: |
+        poetry run pytest -c pytest.ini
+    - name: Check style with flake8
+      run: |
+        poetry run flake8 data_preprocessor/ tests/
+    - name: Check format with black
+      run: |
+        poetry run black --check data_preprocessor/ tests/
+    - name: Check type hinting with mypy
+      run: |
+        poetry run mypy --strict --config-file=mypy.ini data_preprocessor/
