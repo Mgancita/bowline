@@ -9,14 +9,15 @@ homepage = "https://github.com/mgancita/bowline"
 repository = "https://github.com/mgancita/bowline"
 keywords = ["preprocess", "machine learning", "data science"]
 classifiers = [
+    "Development Status :: 3 - Alpha",
     "Environment :: Console",
+    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.7",
     "Topic :: Software Development :: Libraries :: Python Modules",
-    "Python :: 3.7"
+    "Topic :: Software Development :: Pre-processors",
 ]
-include = [
-    "LICENSE",
-]
+include = ["LICENSE", "bowline/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
