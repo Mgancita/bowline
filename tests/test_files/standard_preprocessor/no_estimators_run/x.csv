@@ -1,0 +1,25 @@
+age,workclass,education,marital-status,occupation,race,sex,capital-gain
+39.0, State-gov, Bachelors, Never-married, Adm-clerical, White, Male,2174
+50.0, Self-emp-not-inc, Bachelors, Married-civ-spouse, Exec-managerial, White, Male,0
+38.0, Private, HS-grad, Divorced, Handlers-cleaners, White, Male,0
+28.0, Private, Bachelors, Married-civ-spouse, Prof-specialty, Black, Female,0
+37.0, Private, Masters, Married-civ-spouse, Exec-managerial, White, Female,0
+49.0, Private, 9th, Married-spouse-absent, Other-service, Black, Female,0
+52.0, Self-emp-not-inc, HS-grad, Married-civ-spouse, Exec-managerial, White, Male,0
+42.0, Private, Bachelors, Married-civ-spouse, Exec-managerial, White, Male,5178
+37.0, Private, Some-college, Married-civ-spouse, Exec-managerial, Black, Male,0
+23.0, Private, Bachelors, Never-married, Adm-clerical, White, Female,0
+40.0, Private, Assoc-voc, Married-civ-spouse, Craft-repair, Asian-Pac-Islander, Male,0
+34.0, Private, 7th-8th, Married-civ-spouse, Transport-moving, Amer-Indian-Eskimo, Male,0
+25.0, Self-emp-not-inc, HS-grad, Never-married, Farming-fishing, White, Male,0
+32.0, Private, HS-grad, Never-married, Machine-op-inspct, White, Male,0
+38.0, Private, 11th, Married-civ-spouse, Sales, White, Male,0
+43.0, Self-emp-not-inc, Masters, Divorced, Exec-managerial, White, Female,0
+40.0, Private, Doctorate, Married-civ-spouse, Prof-specialty, White, Male,0
+54.0, Private, HS-grad, Separated, Other-service, Black, Female,0
+35.0, Federal-gov, 9th, Married-civ-spouse, Farming-fishing, Black, Male,0
+43.0, Private, 11th, Married-civ-spouse, Transport-moving, White, Male,0
+59.0, Private, HS-grad, Divorced, Tech-support, White, Female,0
+56.0, Local-gov, Bachelors, Married-civ-spouse, Tech-support, White, Male,0
+19.0, Private, HS-grad, Never-married, Craft-repair, White, Male,0
+54.0, ?, Some-college, Married-civ-spouse, ?, Asian-Pac-Islander, Male,0
