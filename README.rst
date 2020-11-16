@@ -1,10 +1,33 @@
 -------
 Bowline
 -------
-
 Configurable tools to easily pre and post process your data for data-science and machine learning.
 
-=============
-Why the name?
-=============
-As data is quite hard to "wrangle" I thought what'd be better to use then the name of a knot. So here we are, Bowline is a tool made for all your data wrangling needs.
+==========
+Quickstart
+==========
+This will show you how to install and create a minimal implementation of `Bowline`. More exhaustive documentation is a main priority and will be released soon.
+
+____________
+Installation
+____________
+.. code-block:: 
+
+    $ pip install bowline
+______________________
+Minimal implementation
+______________________
+
+.. code:: python
+
+    from bowline import StandardPreprocessor
+    import pandas as pd
+
+    raw_data = pd.read_csv('path/to/your/file')
+    preprocessor = StandardPrepreocessor(
+        data = data,
+        numerical_features = ["age", "capital-gain"],
+        binary_features = ["sex"],
+        categoric_features = ["occupation", "education"]
+    )
+    processed_data = preprocessor.process(target="sex")
