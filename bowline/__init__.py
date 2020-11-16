@@ -6,7 +6,7 @@ from .preprocessors import StandardPreprocessor
 
 try:
     __version__ = version(__package__)
-except:
+except:  # noqa: E722
     __version__ = "0.0.0"
 
 __all__ = ["StandardPreprocessor", "__version__"]
