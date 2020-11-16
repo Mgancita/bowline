@@ -74,7 +74,8 @@ class StandardPreprocessor:
     def process(
         self,
         target: str,
-        train_test_splitter: Callable[..., List[pd.DataFrame]] = train_test_split,
+        train_test_splitter: Optional[Callable[..., List[pd.DataFrame]]] = train_test_split,
+        test_size: float = 0.25,
         imputer: Optional[BaseEstimator] = SimpleImputer(),
         scaler: Optional[BaseEstimator] = StandardScaler(),
         label_encoder: Optional[BaseEstimator] = LabelEncoder(),
@@ -89,8 +90,11 @@ class StandardPreprocessor:
 
         Args:
             target (str): Column name of the target variable you plan to predict downstream.
-            train_test_splitter (Callable[..., List[pd.DataFrame]], optional): Function for
-                    splitting the final data. Defaults to train_test_split().
+            train_test_splitter (Optional[Callable[..., List[pd.DataFrame]]], optional): Function
+                    for splitting the final data. Set to None to skip train-test splitting.
+                    Defaults to train_test_split().
+            test_size (float): Percent of the data that should go to the testing set.
+                    Defaults to 0.25.
             imputer (Optional[BaseEstimator], optional): Class instance of an imputer, must have a
                     valid 'fit_transform' method. Set to None to skip imputing.
                     Defaults to SimpleImputer().
@@ -140,7 +144,7 @@ class StandardPreprocessor:
         if scaler:
             self._scale_data(scaler, target, scale_target)
 
-        return self._split_data(train_test_splitter, target, random_state)
+        return self._split_data(train_test_splitter, test_size, target, random_state)
 
     def _check_columns_for_nans(self, remove_nans: bool) -> None:
         """Check if columns have NaNs and remove them if requested.
@@ -286,12 +290,18 @@ class StandardPreprocessor:
             )
 
     def _split_data(
-        self, splitter: Callable[..., List[pd.DataFrame]], target: str, random_state: Optional[int]
+        self,
+        splitter: Optional[Callable[..., List[pd.DataFrame]]],
+        test_size: float,
+        target: str,
+        random_state: Optional[int],
     ) -> List[pd.DataFrame]:
         """Split the data.
 
         Args:
-            splitter (Callable[..., List[pd.DataFrame]]): Function to split the processed data.
+            splitter (Optional[Callable[..., List[pd.DataFrame]]]): Function to split the
+                    processed data.
+            test_size (float): Percent of the data that should go to the testing set.
             target (str): Column name of target variable.
             random_state (Optional[int]): A seed to make splitting reproducible.
 
@@ -303,9 +313,9 @@ class StandardPreprocessor:
         x = self.processed_data.drop(target, axis=1)
         y = self.processed_data.loc[:, target]
         if splitter:
-            return splitter(x, y, random_state=random_state)
+            return splitter(x, y, random_state=random_state, test_size=test_size)
 
-        return x, y
+        return [x, y]
 
     @property
     def features_to_check(self) -> List[str]:
