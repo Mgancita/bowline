@@ -1,0 +1,49 @@
+# Project Information
+site_name: Bowline
+site_author: Marco Gancitano
+site_description: >-
+  Configurable tools to easily pre and post process your data for data-science and machine learning.
+
+# Repository information
+repo_name: mgancita/bowline
+repo_url: https://github.com/mgancita/bowline
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; 2016 - 2020 Marco Gancitano
+
+# Configuration
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+
+# Configuration
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+  language: en
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/mgancita
+      name: mgancita on GitHub
+    - icon: fontawesome/brands/kaggle
+      link: https://kaggle.com/mgancita
+      name: mgancita on Kaggle
+
+# Page tree
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quickstart: getting-started/quickstart.md
