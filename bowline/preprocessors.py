@@ -291,7 +291,7 @@ class StandardPreprocessor:
 
     def _split_data(
         self,
-        splitter: Callable[..., List[pd.DataFrame]],
+        splitter: Optional[Callable[..., List[pd.DataFrame]]],
         test_size: float,
         target: str,
         random_state: Optional[int],
@@ -299,7 +299,7 @@ class StandardPreprocessor:
         """Split the data.
 
         Args:
-            splitter (Callable[..., List[pd.DataFrame]]): Function to split the processed data.
+            splitter (Optional[Callable[..., List[pd.DataFrame]]]): Function to split the processed data.
             test_size (float): Percent of the data that should go to the testing set.
             target (str): Column name of target variable.
             random_state (Optional[int]): A seed to make splitting reproducible.
