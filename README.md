@@ -11,7 +11,7 @@
 Configurable tools to easily pre and post process your data for data-science and machine learning.
 
 ## Quickstart
-This will show you how to install and create a minimal implementation of `Bowline`. More exhaustive documentation is a main priority and will be released soon.
+This will show you how to install and create a minimal implementation of `Bowline`. For more in-depth examples visit the [Official Docs](https://mgancita.github.io/bowline).
 
 ### Installation
 ```
