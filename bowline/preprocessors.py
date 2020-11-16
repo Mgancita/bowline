@@ -299,7 +299,8 @@ class StandardPreprocessor:
         """Split the data.
 
         Args:
-            splitter (Optional[Callable[..., List[pd.DataFrame]]]): Function to split the processed data.
+            splitter (Optional[Callable[..., List[pd.DataFrame]]]): Function to split the
+                    processed data.
             test_size (float): Percent of the data that should go to the testing set.
             target (str): Column name of target variable.
             random_state (Optional[int]): A seed to make splitting reproducible.
@@ -314,7 +315,7 @@ class StandardPreprocessor:
         if splitter:
             return splitter(x, y, random_state=random_state, test_size=test_size)
 
-        return x, y
+        return [x, y]
 
     @property
     def features_to_check(self) -> List[str]:
