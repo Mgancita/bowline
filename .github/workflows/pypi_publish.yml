@@ -1,8 +1,8 @@
-name: Test publish
+name: PyPI publish
 
 on:
   release:
-    types: [prereleased]
+    types: [released]
 
 jobs:
   build:
@@ -26,4 +26,4 @@ jobs:
         poetry build
     - name: Publish package
       run: |
-        poetry publish -r testpypi -u ${{ secrets.TEST_PYPI_USERNAME }} -p ${{ secrets.TEST_PYPI_PASSWORD }}
+        poetry publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}

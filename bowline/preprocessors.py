@@ -9,7 +9,7 @@ import pandas as pd
 from sklearn.base import BaseEstimator
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
 from .utils import detect_series_type
 
@@ -24,12 +24,12 @@ class StandardPreprocessor:
 
     Args:
         data (pd.DataFrame): DataFrame to preprocess for downstream applications.
-        numeric_features (List[str], optional): List of numeric columns within 'data'.
-                Defaults to [].
-        categoric_features (List[str], optional): List of categoric columns within 'data'. These
-                are columns which have more than 2 options. Defaults to [].
-        binary_features (List[str], optional): List of binary columns within 'data'. These are
-                columns which have 2 options. Defaults to [].
+        numeric_features (Optional[List[str]], optional): List of numeric columns within 'data'.
+                Defaults to None.
+        categoric_features (Optional[List[str]], optional): List of categoric columns within
+                'data'. These are columns which have more than 2 options. Defaults to None.
+        binary_features (Optional[List[str]], optional): List of binary columns within 'data'.
+                These are columns which have 2 options. Defaults to None.
         auto_detect_variable (bool, optional): Whether to use the experimental auto variable
                 detection. If set to 'True' all feature lists will be ignored. Defaults to False.
 
@@ -44,9 +44,9 @@ class StandardPreprocessor:
     def __init__(
         self,
         data: pd.DataFrame,
-        numeric_features: List[str] = [],
-        categoric_features: List[str] = [],
-        binary_features: List[str] = [],
+        numeric_features: Optional[List[str]] = None,
+        categoric_features: Optional[List[str]] = None,
+        binary_features: Optional[List[str]] = None,
         auto_detect_variable: bool = False,
     ) -> None:
         """Instantiate class."""
@@ -60,8 +60,13 @@ class StandardPreprocessor:
                 f"'auto_detect_variable' must be a boolean. {type(auto_detect_variable)} given."
             )
 
+        numeric_features = numeric_features or []
+        categoric_features = categoric_features or []
+        binary_features = binary_features or []
+
         # Set data
         self.data = data
+        self.processed_data = data
 
         # Set feature types automatically
         if auto_detect_variable:
@@ -79,7 +84,7 @@ class StandardPreprocessor:
         imputer: Optional[BaseEstimator] = SimpleImputer(),
         scaler: Optional[BaseEstimator] = StandardScaler(),
         label_encoder: Optional[BaseEstimator] = LabelEncoder(),
-        one_hot_encoder: Optional[BaseEstimator] = OneHotEncoder(),
+        one_hot_encode: bool = True,
         remove_nans: bool = False,
         scale_target: bool = True,
         random_state: Optional[int] = None,
@@ -104,9 +109,8 @@ class StandardPreprocessor:
             label_encoder (Optional[BaseEstimator], optional): Class instance of a label encoder,
                     must have a valid 'fit_transform' method. Set to None to skip label encoding.
                     Defaults to LabelEncoder().
-            one_hot_encoder (Optional[BaseEstimator], optional): Class instance of a one-hot
-                    encoder, must have a valid 'fit_transform' method. Set to None to skip one-hot
-                    encoding. Defaults to OneHotEncoder().
+            one_hot_encode (bool, optional): Whether or not to one-hot encode categoric variables.
+                    Defaults to True.
             remove_nans (bool, optional): Whether to remove any found NaNs. Defaults to False.
             scale_target (bool, optional): Whether to scale the 'target' variable. Target data is
                     typically not scaled for non-parametric models. Defaults to True.
@@ -138,8 +142,8 @@ class StandardPreprocessor:
         if label_encoder:
             self._label_encode(label_encoder)
 
-        if one_hot_encoder:
-            self._one_hot_encode(one_hot_encoder, target)
+        if one_hot_encode:
+            self._one_hot_encode(target)
 
         if scaler:
             self._scale_data(scaler, target, scale_target)
@@ -252,12 +256,10 @@ class StandardPreprocessor:
         self.categoric_features = categoric_features
         self.binary_features = binary_features
 
-    def _one_hot_encode(self, encoder: BaseEstimator, target: str) -> None:
+    def _one_hot_encode(self, target: str) -> None:
         """One-hot encode categoric features.
 
         Args:
-            encoder (BaseEstimator): Class instance to encode the data. Must have valid
-                    'fit_transform' method.
             target (str): Column name of target variable.
 
         """
