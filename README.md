@@ -7,6 +7,7 @@
 [![GitHub license](https://img.shields.io/github/license/mgancita/bowline.svg)](https://github.com/mgancita/bowline/blob/master/LICENSE)
 ![PyPI downloads](https://img.shields.io/github/downloads/mgancita/bowline/total)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Code Status](https://www.code-inspector.com/project/16320/status/svg)
 
 
 Configurable tools to easily pre and post process your data for data-science and machine learning.
