@@ -19,24 +19,18 @@ jobs:
         with:
           python-version: 3.7
       - name: Install poetry
-        run: |
-          pip install poetry
+        run: pip install poetry
       - name: Install dependencies
-        run: |
-          poetry update
+        run: poetry update
       - name: Unit & Coverage test with pytest
-        run: |
-          poetry run pytest
+        run: poetry run pytest
       - name: Check style with flake8 & pylint
         run: |
           poetry run flake8 bowline/ tests/
           poetry run pylint bowline/
       - name: Check format with black
-        run: |
-          poetry run black --check bowline/ tests/
+        run: poetry run black --check bowline/ tests/
       - name: Check type hinting with mypy
-        run: |
-          poetry run mypy --strict --config-file=mypy.ini bowline/
+        run: poetry run mypy --strict --config-file=mypy.ini bowline/
       - name: Check yaml style with yamllint
-        run: |
-          poetry run yamllint . -c yamllint-config.yaml
+        run: poetry run yamllint . -c yamllint-config.yaml

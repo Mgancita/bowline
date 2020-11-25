@@ -17,15 +17,10 @@ jobs:
         with:
           python-version: 3.7
       - name: Install poetry
-        run: |
-          pip install poetry
+        run: pip install poetry
       - name: Bump version number
-        run: |
-          poetry version ${{ github.event.release.tag_name }}
+        run: poetry version ${{ github.event.release.tag_name }}
       - name: Build package
-        run: |
-          poetry build
+        run: poetry build
       - name: Publish package
-        run: |
-          poetry publish -u ${{ secrets.PYPI_USERNAME }} -p
-          ${{ secrets.PYPI_PASSWORD }}
+        run: poetry publish -u ${{ secrets.PYPI_USERNAME }} -p ${{ secrets.PYPI_PASSWORD }}
