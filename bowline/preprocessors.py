@@ -243,7 +243,7 @@ class StandardPreprocessor:
         }
         for arg_name, arg in features_dict.items():
             # Check feature list types
-            if not isinstance(arg, List):
+            if not isinstance(arg, list):
                 raise TypeError(f"'{arg_name}' must be a boolean. {type(arg)} given.")
             # Check feature list values
             if not set(arg).issubset(data_column_names_set):
