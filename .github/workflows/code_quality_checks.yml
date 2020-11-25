@@ -23,12 +23,13 @@ jobs:
     - name: Install dependencies
       run : |
         poetry update
-    - name: Test with pytest
+    - name: Unit & Coverage test with pytest
       run: |
         poetry run pytest
-    - name: Check style with flake8
+    - name: Check style with flake8 & pylint
       run: |
         poetry run flake8 bowline/ tests/
+        poetry run pylint bowline/
     - name: Check format with black
       run: |
         poetry run black --check bowline/ tests/
