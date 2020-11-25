@@ -128,7 +128,7 @@ class TestStandardPreprocessor:
             imputer=None,
             scaler=None,
             label_encoder=None,
-            one_hot_encoder=None,
+            one_hot_encode=False,
             remove_nans=True,
             random_state=2020,
         )

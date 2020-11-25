@@ -1,9 +1,10 @@
 # Bowline
 
-![build](https://github.com/mgancita/bowline/workflows/Continuous%20Integration/badge.svg)
+![Code Quality Checks](https://github.com/mgancita/bowline/workflows/Code%20Quality%20Checks/badge.svg)
+![Docs Publish](https://github.com/mgancita/bowline/workflows/Docs%20publish/badge.svg)
 [![PyPI version](https://badge.fury.io/py/bowline.svg)](https://badge.fury.io/py/bowline)
 ![versions](https://img.shields.io/pypi/pyversions/bowline.svg)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/mgancita/bowline.svg)](https://github.com/mgancita/bowline/blob/master/LICENSE)
 ![PyPI downloads](https://img.shields.io/github/downloads/mgancita/bowline/total)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
