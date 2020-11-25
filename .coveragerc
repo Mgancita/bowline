@@ -1,5 +1,0 @@
-[run]
-include = bowline/*
-omit =
-    bowline/__init__.py
-    *tests*
